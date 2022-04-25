@@ -1,0 +1,22 @@
+.main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.title{
+    margin: 5px;
+}
+.blogCardCon{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+.blogImg{
+    width: 30%;
+    margin: 20px;
+}
+.blogAnchor{
+    text-decoration: none;
+    color:inherit;
+    font-size: 30px;
+}
