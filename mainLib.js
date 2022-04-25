@@ -1,17 +1,19 @@
 const mainDiv = document.querySelector('.main')
 
 
+
 export function getProducts(){
     let productArray
 
-    fetch("http://localhost:3000/wp-json/wc/v3/products?oauth_consumer_key=ck_d193b472e0270d7c98eebfccee1cee3813b6a1cb&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1650879700&oauth_nonce=26RyBX5RORC&oauth_version=1.0&oauth_signature=4JY%2BU5fburppB0lD4mJp2D9L2q8%3D",{
+
+    fetch("http://localhost:3000/wp-json/wc/v3/products?oauth_consumer_key=ck_d193b472e0270d7c98eebfccee1cee3813b6a1cb&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1650918295&oauth_nonce=G0DzBiXlKbF&oauth_version=1.0&oauth_signature=c3dE8FL6cmUjCP%2BQNBAS02LKf20%3D",{
         method:'GET'
     })
     .then(response => response.json())
     .then(result => productArray = result)
     .then(()=>{
         productArray.map(data => {
-        
+
             return addProductCard(data.name, data.images[0].src, data.permalink,data.categories[0].name, data.price, data.short_description, data.categories[0].slug);
         })
 
@@ -19,6 +21,8 @@ export function getProducts(){
     .catch(error => console.log('error', error));
     
 }
+
+
 
 
 
@@ -69,7 +73,8 @@ function addProductCard(name,img,pl,cat,price,shortDesc,slug){
 export function getOrders(){
     let  orderArray
 
-    fetch("http://localhost:3000/wp-json/wc/v3/orders?page=1&per_page=2&oauth_consumer_key=ck_d193b472e0270d7c98eebfccee1cee3813b6a1cb&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1650880003&oauth_nonce=4xPallhDCmp&oauth_version=1.0&oauth_signature=w9H%2Bs%2B69XA7z8XHPaau%2BIYrLJfI%3D",{
+
+    fetch("http://localhost:3000/wp-json/wc/v3/orders?page=1&per_page=2&oauth_consumer_key=ck_d193b472e0270d7c98eebfccee1cee3813b6a1cb&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1650918320&oauth_nonce=Xyy9caqxllQ&oauth_version=1.0&oauth_signature=K%2FQbUQG3c55O2N8XkjniW5uhp9A%3D",{
         method:'GET'
     })
     .then(response => response.json())
@@ -176,7 +181,7 @@ function addOrdersCard(ID,status,sum,datum,customerfname,customerlname,customerA
         ordDisp.classList.add('ordDisp')
         custInfoCon.classList.add('custInfoCon')
         custInfoTitle.classList.add('custInfoTitle')
-        
+
         custOrderTitle.classList.add('custOrderTitle')
         custOrder.classList.add('custOrder')
         custOrder2.classList.add('custOrder2')
